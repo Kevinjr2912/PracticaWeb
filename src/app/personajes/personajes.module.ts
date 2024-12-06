@@ -6,9 +6,6 @@ import { CardCharacterComponent } from './card-character/card-character.componen
 @NgModule({
   declarations: [
     CardCharacterComponent
-  ],
-  imports: [
-    CommonModule
   ]
 })
 export class PersonajesModule { }
