@@ -10,7 +10,7 @@ import { InformacionPersonaje } from './personajes/modelos/informacion-personaje
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit{  
   episodio: InformaciónEpisodio = {
     id: 0,
     name: '',

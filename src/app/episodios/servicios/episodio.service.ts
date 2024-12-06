@@ -18,5 +18,4 @@ export class EpisodioService {
   obtenerInformacionEpisodio(id: number): Observable<InformaciónEpisodio> {
     return this._http.get<InformaciónEpisodio>(`https://rickandmortyapi.com/api/episode/${id}`)
   }
-
 }

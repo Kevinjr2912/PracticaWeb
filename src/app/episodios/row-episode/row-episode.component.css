@@ -1,0 +1,13 @@
+
+td {
+    background-color: rgb(6, 3, 45);
+    color: #b4becb;
+    font-size: 450;
+}
+
+.button-see-char {
+    background: none;
+    border: none;
+    color: #b4becb;
+    text-decoration: underline;
+}
