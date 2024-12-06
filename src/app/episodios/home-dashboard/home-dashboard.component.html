@@ -1,0 +1,14 @@
+<table>
+    <tr class="header-table">
+        <th>Name</th>
+        <th>Air Date</th>
+        <th>Code</th>
+        <th>Link</th>
+        <th>Actions</th>
+    </tr>
+    <tr class="table-row-location" 
+        *ngFor="let episode of episodiosObtenidos.results"
+        [episode]="episode"
+        >
+    </tr>
+</table>

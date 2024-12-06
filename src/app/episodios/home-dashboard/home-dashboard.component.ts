@@ -1,14 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-import { EpisodioService } from './episodios/servicios/episodio.service';
-import { Episodios } from './episodios/modelos/episodios';
-import { InformaciónEpisodio } from './episodios/modelos/información-episodio';
+import { Component } from '@angular/core';
+import { EpisodioService } from '../servicios/episodio.service';
+import { Episodios } from '../modelos/episodios';
+import { InformaciónEpisodio } from '../modelos/información-episodio';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  selector: 'app-home-dashboard',
+  templateUrl: './home-dashboard.component.html',
+  styleUrl: './home-dashboard.component.css'
 })
-export class AppComponent implements OnInit{
+export class HomeDashboardComponent {
   episodiosObtenidos: Episodios = {
     results :[{
       id: 0,
@@ -23,10 +23,10 @@ export class AppComponent implements OnInit{
 
   episodios: InformaciónEpisodio [] = [];
 
-  constructor(private apiService: EpisodioService){}
+  constructor(private servicioEpisodio: EpisodioService){}
 
   ngOnInit(): void {
-      this.apiService.obtenerEpisodios().subscribe(
+      this.servicioEpisodio.obtenerEpisodios().subscribe(
         (response) => {
           this.episodiosObtenidos.results = response.results;
           this.asociarInformacionPersonaje();
@@ -50,5 +50,4 @@ export class AppComponent implements OnInit{
     });
 
   }
-  
 }
