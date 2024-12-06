@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { EpisodioService } from './episodios/servicios/episodio.service';
 import { Episodios } from './episodios/modelos/episodios';
 import { InformaciónEpisodio } from './episodios/modelos/información-episodio';
+import { PersonajeService } from './personajes/servicios/personaje.service';
+import { InformacionPersonaje } from './personajes/modelos/informacion-personaje';
 
 @Component({
   selector: 'app-root',
@@ -9,46 +11,56 @@ import { InformaciónEpisodio } from './episodios/modelos/información-episodio'
   styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit{
-  episodiosObtenidos: Episodios = {
-    results :[{
-      id: 0,
-      name: '',
-      air_date: new Date(),
-      episode: '',
-      characters: [],
-      url: '',
-      created: new Date()
-    }]
+  episodio: InformaciónEpisodio = {
+    id: 0,
+    name: '',
+    air_date: new Date(),
+    episode: '',
+    characters: [],
+    url: ''
   }
 
-  episodios: InformaciónEpisodio [] = [];
+  personajes: InformacionPersonaje [] = [];
 
-  constructor(private apiService: EpisodioService){}
+  constructor(private servicioEpisodio: EpisodioService, private servicioPersonaje: PersonajeService ){}
 
   ngOnInit(): void {
-      this.apiService.obtenerEpisodios().subscribe(
-        (response) => {
-          this.episodiosObtenidos.results = response.results;
-          this.asociarInformacionPersonaje();
-        },
-        (err) => {console.log('Error ' + err)}
-      )
+    this.consumirServicioEpisodio();
   }
 
-  asociarInformacionPersonaje(): void {
-    this.episodiosObtenidos.results.forEach(episodio => {
-      let episodioInformación: InformaciónEpisodio = {
-        id: episodio.id,
-        name: episodio.name,
-        air_date: episodio.air_date,
-        episode: episodio.episode,
-        characters: episodio.characters,
-        url: episodio.url
-      }
-
-      this.episodios.push(episodioInformación);
-    });
-
+  consumirServicioEpisodio(){
+    this.servicioEpisodio.obtenerInformacionEpisodio(3).subscribe(
+      (response) => {
+        this.episodio = response;
+        this.consumirServicioPersonaje();
+      },
+      (err) => {console.log('Error ' + err)}
+    )
   }
-  
+
+  consumirServicioPersonaje() {
+      this.episodio.characters.forEach(urlPersonaje => {
+        this.servicioPersonaje.obtenerInformacionPersonaje(urlPersonaje).subscribe(
+          (response) => {
+            console.log(response)
+            let personaje: InformacionPersonaje = {
+              id: response.id,
+              name: response.name,
+              status: response.status,
+              species: response.species,
+              type: response.type,
+              gender: response.gender,
+              origin: response.origin,
+              image: response.image
+            };
+
+            this.personajes.push(personaje);
+            
+          },
+          (err) => {
+            console.log(err)
+          }
+        )
+      });
+  }
 }
