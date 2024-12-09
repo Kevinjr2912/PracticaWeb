@@ -1,1 +1,21 @@
-/* You can add global styles to this file, and also import other style files */
+app-table-locations {
+    width: 100%;
+    height: 100vh;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+}
+
+* {
+    font-size: 18px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body {
+    background-color: #616782;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
