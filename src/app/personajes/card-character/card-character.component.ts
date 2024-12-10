@@ -44,5 +44,7 @@ export class CardCharacterComponent {
 
   changeVisibilityFormEmit(event: boolean): void {
     this.formVisible = !this.formVisible;
+    console.log('Personajito', this.character);
+    
   }
 }

@@ -1,8 +1,10 @@
 <div class="container-form">
-    <div>
+    <div class="modal">
         <div class="header-form">
-            <button class="close-btn" (click)="changeVisibility()">Cerrar</button>
+            <button class="close-btn" (click)="changeVisibility()">x</button>
         </div>
+        <img [src]="character.image" alt="">
+        <p>{{character.name}}</p>
         <app-card-location [location]="location"></app-card-location>
     </div>
-</div>x 
+</div>

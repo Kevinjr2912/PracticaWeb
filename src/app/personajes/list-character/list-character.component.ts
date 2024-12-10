@@ -28,6 +28,11 @@ export class ListCharacterComponent {
     private charServ: PersonajeService
   ) {}
 
+  goBack(): void {
+    window.history.back()
+  }
+
+
   ngOnInit(): void {
     const id = parseInt(this.router.snapshot.paramMap.get('id') || '') || 0;
     this.epiServ.obtenerInformacionEpisodio(id).subscribe(

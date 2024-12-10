@@ -27,10 +27,7 @@ export class AppComponent implements OnInit{
 
   constructor(private servicioEpisodio: EpisodioService, private servicioPersonaje: PersonajeService ){}
 
-  goBack(): void {
-    window.history.back()
-  }
-
+  
   ngOnInit(): void {
   
   }

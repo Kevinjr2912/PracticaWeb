@@ -10,6 +10,7 @@
     padding: 15px;
     width: 15vw;
     height: 48vh;
+    z-index: 10;
 }
 
 .card * {
@@ -20,6 +21,7 @@
     position:relative;
     width: 100%;
     border-radius: 10px;
+    z-index: 11;
 }
 
 .card span, 
