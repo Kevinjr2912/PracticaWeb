@@ -1,3 +1,15 @@
+.btn-back {
+    background: none;
+    border: none; 
+    position: absolute;
+    top: 5vh;
+    left: 5vh;  
+}
+
+.btn-back i {
+    color: white;
+}
+
 section {
     display: flex;
     flex-wrap: wrap;

@@ -1,3 +1,5 @@
+import { IOrigin } from "./iorigin";
+
 export interface InformacionPersonaje {
     id: number;
     name: string;
@@ -5,6 +7,6 @@ export interface InformacionPersonaje {
     species: string;
     type: string;
     gender: string;
-    origin: string;
+    origin: IOrigin;
     image: string;
 }

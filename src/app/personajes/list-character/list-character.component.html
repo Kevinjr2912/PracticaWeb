@@ -1,4 +1,8 @@
 <section>
+    <button class="btn-back" (click)="goBack()">
+        <i class="fa-solid fa-arrow-left"></i>
+    </button>
+
     <button class="left-button" (click)="goLeft()"><</button>
     <app-card-character *ngFor="let char of visibleCharacters" [url]="char" >
     </app-card-character>
