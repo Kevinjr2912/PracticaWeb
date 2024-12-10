@@ -51,4 +51,7 @@ export class AppComponent implements OnInit{
 
   }
   
+  seeEpisodes(): void {}
+
+  seeFavorites(): void {}
 }
