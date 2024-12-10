@@ -50,4 +50,12 @@ export class HomeDashboardComponent {
     });
 
   }
+
+  seeEpisodes(): void {
+
+  }
+
+  seeFavorites(): void {
+
+  }
 }

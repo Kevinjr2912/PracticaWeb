@@ -1,11 +1,9 @@
-<button [class.selected]= "isSelected" class="card-complete" (click)="seleccionar()">
+<button class="card">
+    <img [src]="character.image" alt="">
     <div class="left-side-card">   
-        <h3> {{  }} </h3>
-        <span> {{  }} </span>
-        <p> {{  }} </p>
-        <p> {{  }} </p> 
-
-        <p> {{  }} </p>
+        <h3> {{ character.name }} </h3>
+        <span> {{ character.status + ' - ' + character.species }} </span>
+        <p> {{ character.gender }} </p> 
     </div>
-    <h4> {{  }} </h4>
+    <button>Ver origen</button>
 </button>

@@ -1,0 +1,38 @@
+section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2vw;
+}
+
+.left-button {
+    position: absolute;
+    left: 40px;
+    background-color: rgb(51, 55, 65);
+    border: none;
+    color: rgb(1, 206, 114);
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    padding: 10px;
+    width: 50px;
+    aspect-ratio: 1/1;
+}
+
+.right-button {
+    position: absolute;
+    right: 40px;
+    background-color: rgb(51, 55, 65);
+    border: none;
+    color: rgb(1, 206, 114);
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    padding: 10px;
+    aspect-ratio: 1/1;
+}

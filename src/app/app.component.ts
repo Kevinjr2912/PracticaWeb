@@ -10,57 +10,48 @@ import { InformacionPersonaje } from './personajes/modelos/informacion-personaje
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent implements OnInit{  
-  episodio: InformaciónEpisodio = {
-    id: 0,
-    name: '',
-    air_date: new Date(),
-    episode: '',
-    characters: [],
-    url: ''
+export class AppComponent implements OnInit{
+  episodiosObtenidos: Episodios = {
+    results :[{
+      id: 0,
+      name: '',
+      air_date: '',
+      episode: '',
+      characters: [],
+      url: '',
+      created: new Date()
+    }]
   }
 
   personajes: InformacionPersonaje [] = [];
 
   constructor(private servicioEpisodio: EpisodioService, private servicioPersonaje: PersonajeService ){}
 
+  goBack(): void {
+    window.history.back()
+  }
+
   ngOnInit(): void {
-    this.consumirServicioEpisodio();
+  
   }
 
-  consumirServicioEpisodio(){
-    this.servicioEpisodio.obtenerInformacionEpisodio(3).subscribe(
-      (response) => {
-        this.episodio = response;
-        this.consumirServicioPersonaje();
-      },
-      (err) => {console.log('Error ' + err)}
-    )
-  }
+  /* asociarInformacionPersonaje(): void {
+    this.episodiosObtenidos.results.forEach(episodio => {
+      let episodioInformación: InformaciónEpisodio = {
+        id: episodio.id,
+        name: episodio.name,
+        air_date: episodio.air_date,
+        episode: episodio.episode,
+        characters: episodio.characters,
+        url: episodio.url
+      }
 
-  consumirServicioPersonaje() {
-      this.episodio.characters.forEach(urlPersonaje => {
-        this.servicioPersonaje.obtenerInformacionPersonaje(urlPersonaje).subscribe(
-          (response) => {
-            console.log(response)
-            let personaje: InformacionPersonaje = {
-              id: response.id,
-              name: response.name,
-              status: response.status,
-              species: response.species,
-              type: response.type,
-              gender: response.gender,
-              origin: response.origin,
-              image: response.image
-            };
+      this.episodios.push(episodioInformación);
+    }); 
 
-            this.personajes.push(personaje);
-            
-          },
-          (err) => {
-            console.log(err)
-          }
-        )
-      });
-  }
+  }*/
+  
+  seeEpisodes(): void {}
+
+  seeFavorites(): void {}
 }
