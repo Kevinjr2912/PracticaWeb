@@ -4,7 +4,6 @@ import { HomeDashboardComponent } from './home-dashboard/home-dashboard.componen
 import { RowEpisodeComponent } from './row-episode/row-episode.component';
 
 
-
 @NgModule({
   declarations: [
     HomeDashboardComponent,
@@ -14,7 +13,6 @@ import { RowEpisodeComponent } from './row-episode/row-episode.component';
     CommonModule
   ],
   exports: [
-    
     HomeDashboardComponent,
     RowEpisodeComponent
   ]

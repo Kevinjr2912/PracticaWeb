@@ -1,1 +1,6 @@
-<p>list-character works!</p>
+<section>
+    <button class="left-button" (click)="goLeft()"><</button>
+    <app-card-character *ngFor="let char of visibleCharacters" [url]="char" >
+    </app-card-character>
+    <button class="right-button" (click)="goRight()">></button>
+</section>

@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { EpisodiosModule } from './episodios/episodios.module';
+import { PersonajesModule } from './personajes/personajes.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { EpisodiosModule } from './episodios/episodios.module';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    EpisodiosModule
+    EpisodiosModule,
+    PersonajesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

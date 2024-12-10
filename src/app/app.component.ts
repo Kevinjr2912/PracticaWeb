@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { EpisodioService } from './episodios/servicios/episodio.service';
 import { Episodios } from './episodios/modelos/episodios';
 import { InformaciónEpisodio } from './episodios/modelos/información-episodio';
+import { PersonajeService } from './personajes/servicios/personaje.service';
+import { InformacionPersonaje } from './personajes/modelos/informacion-personaje';
 
 @Component({
   selector: 'app-root',
@@ -21,21 +23,19 @@ export class AppComponent implements OnInit{
     }]
   }
 
-  episodios: InformaciónEpisodio [] = [];
+  personajes: InformacionPersonaje [] = [];
 
-  constructor(private apiService: EpisodioService){}
+  constructor(private servicioEpisodio: EpisodioService, private servicioPersonaje: PersonajeService ){}
 
-  ngOnInit(): void {
-      this.apiService.obtenerEpisodios().subscribe(
-        (response) => {
-          this.episodiosObtenidos.results = response.results;
-          this.asociarInformacionPersonaje();
-        },
-        (err) => {console.log('Error ' + err)}
-      )
+  goBack(): void {
+    window.history.back()
   }
 
-  asociarInformacionPersonaje(): void {
+  ngOnInit(): void {
+  
+  }
+
+  /* asociarInformacionPersonaje(): void {
     this.episodiosObtenidos.results.forEach(episodio => {
       let episodioInformación: InformaciónEpisodio = {
         id: episodio.id,
@@ -47,9 +47,9 @@ export class AppComponent implements OnInit{
       }
 
       this.episodios.push(episodioInformación);
-    });
+    }); 
 
-  }
+  }*/
   
   seeEpisodes(): void {}
 
