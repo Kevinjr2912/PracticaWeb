@@ -1,9 +1,15 @@
 <button class="card">
-    <img [src]="character.image" alt="">
-    <div class="left-side-card">   
-        <h3> {{ character.name }} </h3>
-        <span> {{ character.status + ' - ' + character.species }} </span>
-        <p> {{ character.gender }} </p> 
-    </div>
-    <button>Ver origen</button>
+  <img [src]="character.image" alt="" />
+  <div class="left-side-card">
+    <h3>{{ character.name }}</h3>
+    <span> {{ character.status + " - " + character.species }} </span>
+    <p>{{ character.gender }}</p>
+  </div>
+  <button (click)="changeVisibilityForm()">Ver origen</button>
+  <app-modal-personaje
+    (visibleChange)="changeVisibilityFormEmit($event)"
+    [visible]="formVisible"
+    [url]="character.origin.url"
+    *ngIf="formVisible"
+  ></app-modal-personaje>
 </button>

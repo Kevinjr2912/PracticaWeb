@@ -7,7 +7,7 @@ import { InformaciónEpisodio } from '../../episodios/modelos/información-episo
 @Component({
   selector: 'app-list-character',
   templateUrl: './list-character.component.html',
-  styleUrl: './list-character.component.css'
+  styleUrl: './list-character.component.css',
 })
 export class ListCharacterComponent {
   episode: InformaciónEpisodio = {
@@ -17,54 +17,56 @@ export class ListCharacterComponent {
     episode: '',
     characters: [],
     url: '',
-  }
-  visibleCharacters: string[] = []
-  page: number = 0
-  cantVisible: number = 10
+  };
+  visibleCharacters: string[] = [];
+  page: number = 0;
+  cantVisible: number = 10;
 
-  constructor(private router: ActivatedRoute,
-              private epiServ: EpisodioService,
-              private charServ: PersonajeService
-  ){}
+  constructor(
+    private router: ActivatedRoute,
+    private epiServ: EpisodioService,
+    private charServ: PersonajeService
+  ) {}
 
-  ngOnInit():void {
-    const id = parseInt(this.router.snapshot.paramMap.get('id')||'') || 0
+  ngOnInit(): void {
+    const id = parseInt(this.router.snapshot.paramMap.get('id') || '') || 0;
     this.epiServ.obtenerInformacionEpisodio(id).subscribe(
-      response => {
-        this.episode = response
+      (response) => {
+        this.episode = response;
       },
-      error => {
+      (error) => {
         console.log('Algo salio mal', error);
       }
-    )
+    );
   }
 
   ngDoCheck(): void {
-    this.updateVisibleCharacters()
+    this.updateVisibleCharacters();
   }
 
   updateVisibleCharacters(): void {
-    const indexStart: number = this.page*this.cantVisible
-    const indexEnd: number = indexStart+this.cantVisible
-    console.log('PAgina', this.page, 'Start', indexStart, 'IndexEnd', indexEnd);
-    
-    this.visibleCharacters = this.episode.characters.slice(indexStart, indexEnd)
-    console.log(this.visibleCharacters);
-    
+    const indexStart: number = this.page * this.cantVisible;
+    const indexEnd: number = indexStart + this.cantVisible;
+
+    this.visibleCharacters = this.episode.characters.slice(
+      indexStart,
+      indexEnd
+    );
   }
 
   goRight(): void {
-    const maxPage = Math.ceil(this.episode.characters.length / this.cantVisible) - 1;
-    if(this.page < maxPage){
-      this.page+=1
-      this.updateVisibleCharacters()
+    const maxPage =
+      Math.ceil(this.episode.characters.length / this.cantVisible) - 1;
+    if (this.page < maxPage) {
+      this.page += 1;
+      this.updateVisibleCharacters();
     }
   }
 
   goLeft(): void {
-    if(this.page> 0){
-      this.page-=1
-      this.updateVisibleCharacters()
+    if (this.page > 0) {
+      this.page -= 1;
+      this.updateVisibleCharacters();
     }
   }
 }

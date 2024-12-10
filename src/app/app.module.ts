@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { EpisodiosModule } from './episodios/episodios.module';
 import { PersonajesModule } from './personajes/personajes.module';
+import { LocationModule } from './location/location.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { PersonajesModule } from './personajes/personajes.module';
     AppRoutingModule,
     HttpClientModule,
     EpisodiosModule,
-    PersonajesModule
+    PersonajesModule,
+    LocationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

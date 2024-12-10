@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { Ipersonaje } from '../interfaces/ipersonaje';
 import { InformacionPersonaje } from '../modelos/informacion-personaje';
 import { PersonajeService } from '../servicios/personaje.service';
 
@@ -9,7 +8,7 @@ import { PersonajeService } from '../servicios/personaje.service';
   styleUrl: './card-character.component.css'
 })
 export class CardCharacterComponent {
-  @Input() url: string = ''
+  @Input() url: string = '';
   character: InformacionPersonaje = {
     id: 0,
     name: '',
@@ -17,9 +16,13 @@ export class CardCharacterComponent {
     species: '',
     type: '',
     gender: '',
-    origin: '',
+    origin: {
+      name: '',
+      url: ''
+    },
     image: ''
   }
+  formVisible: boolean = false;
 
   constructor(private charServ: PersonajeService){}
 
@@ -33,5 +36,13 @@ export class CardCharacterComponent {
         
       }
     )
+  }
+
+  changeVisibilityForm(): void {
+    this.formVisible = !this.formVisible
+  }
+
+  changeVisibilityFormEmit(event: boolean): void {
+    this.formVisible = !this.formVisible;
   }
 }
